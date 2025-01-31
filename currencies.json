@@ -1,0 +1,72 @@
+[
+  {
+    "cid": 1,
+    "symbol": "BTCUSDT",
+    "base": "BTC",
+    "quote": "USDT",
+    "name": "Bitcoin"
+  },
+  {
+    "cid": 1027,
+    "symbol": "ETHUSDT",
+    "base": "ETH",
+    "quote": "USDT",
+    "name": "Ethereum"
+  },
+  {
+    "cid": 1839,
+    "symbol": "BNBUSDT",
+    "base": "BNB",
+    "quote": "USDT",
+    "name": "Binance Coin"
+  },
+  {
+    "cid": 74,
+    "symbol": "DOGEUSDT",
+    "base": "DOGE",
+    "quote": "USDT",
+    "name": "Dogecoin"
+  },
+  {
+    "cid": 52,
+    "symbol": "XRPUSDT",
+    "base": "XRP",
+    "quote": "USDT",
+    "name": "XRP"
+  },
+  {
+    "cid": 5161,
+    "symbol": "WRXUSDT",
+    "base": "WRX",
+    "quote": "USDT",
+    "name": "WazirX"
+  },
+  {
+    "cid": 2416,
+    "symbol": "TFUELUSDT",
+    "base": "TFUEL",
+    "quote": "USDT",
+    "name": "Theta Fuel"
+  },
+  {
+    "cid": 6636,
+    "symbol": "DOTUSDT",
+    "base": "DOT",
+    "quote": "USDT",
+    "name": "Polkadot"
+  },
+  {
+    "cid": 10188,
+    "symbol": "ATAUSDT",
+    "base": "ATA",
+    "quote": "USDT",
+    "name": "Automata Network"
+  },
+  {
+    "cid": 5994,
+    "symbol": "SHIBUSDT",
+    "base": "SHIB",
+    "quote": "USDT",
+    "name": "SHIBA INU"
+  }
+]
