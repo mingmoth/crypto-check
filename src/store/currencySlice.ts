@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import currencies from "../../currencies.json";
 import { Currency } from "../types";
 
-interface CurrencyState {
+export interface CurrencyState {
   pairs: Currency[],
   quoteOptions: string[],
   currentQuote: string,

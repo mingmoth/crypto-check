@@ -1,4 +1,4 @@
-import BinanceWebSocket  from '../lib/binance/api'
+import BinanceWebSocket  from '@/lib/binance/api';
 
 export const binanceApi = {
   ws: new BinanceWebSocket(),

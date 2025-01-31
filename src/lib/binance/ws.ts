@@ -1,25 +1,25 @@
 function noop() {}
 //Websocket Wrapper API with reconnection option
-export default function WS (url: string, opts: any) {
+export default function WS (this: any, url: string, opts: any) {
   opts = opts || {};
 
-  let k, ws, num, $={}, self=this;
+  let k, ws: any, num: number, $: any = {}, self = this;
   let ms=opts.timeout || 1e3, max=opts.maxAttempts || Infinity;
 
   $.onmessage = opts.onmessage || noop;
 
-  $.onclose = e => {
+  $.onclose = (e: any) => {
     e.endpoint = url;
     (e.code !== 1e3 && e.code !== 1005) && self.reconnect(e);
     (opts.onclose || noop)(e);
   };
 
-  $.onerror = e => {
+  $.onerror = (e: any) => {
     e.endpoint = url;
     (e && e.code==='ECONNREFUSED') ? self.reconnect(e) : (opts.onerror || noop)(e);
   };
 
-  $.onopen = e => {
+  $.onopen = (e: any) => {
     e.endpoint = url;
     num=0; (opts.onopen || noop)(e);
   };
@@ -29,14 +29,14 @@ export default function WS (url: string, opts: any) {
     for (k in $) ws[k] = $[k];
   };
 
-  self.reconnect = e => {
+  self.reconnect = (e: any) => {
     (num++ < max) ? setTimeout(() => {
       (opts.onreconnect || noop)(e);
       self.open();
     }, ms) : (opts.onmaximum || noop)(e);
   };
 
-  self.close = (x, y) => {
+  self.close = (x: number, y: string) => {
     ws.close(x, y);
   };
 

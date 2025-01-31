@@ -1,6 +1,13 @@
-import WS from './ws'
+import WS from "./ws"
 
 export default class BinanceWebSocket {
+  private timeout: number;
+  private maxAttempts: number;
+  private _baseUrl: string;
+  private _combinedBaseUrl: string;
+  private subscription: any;
+  private streams: any
+  
   constructor(timeout=5e3, maxAttempts=5) {
     this.timeout = timeout;
     this.maxAttempts = maxAttempts;
@@ -8,13 +15,13 @@ export default class BinanceWebSocket {
     this._combinedBaseUrl = 'wss://stream.binance.com:9443/stream?streams=';
     this.subscription = {};
     this.streams = {
-      depth: (symbol) => `${symbol.toLowerCase()}@depth`,
-      depthLevel: (symbol, level) => `${symbol.toLowerCase()}@depth${level}`,
-      kline: (symbol, interval) => `${symbol.toLowerCase()}@kline_${interval}`,
-      aggTrade: (symbol) => `${symbol.toLowerCase()}@aggTrade`,
-      trade: (symbol) => `${symbol.toLowerCase()}@trade`,
-      ticker: (symbol) => `${symbol.toLowerCase()}@ticker`,
-      miniTicker: (symbol) => `${symbol.toLowerCase()}@miniTicker`,
+      depth: (symbol: string) => `${symbol.toLowerCase()}@depth`,
+      depthLevel: (symbol: string, level: number) => `${symbol.toLowerCase()}@depth${level}`,
+      kline: (symbol: string, interval: string) => `${symbol.toLowerCase()}@kline_${interval}`,
+      aggTrade: (symbol: string) => `${symbol.toLowerCase()}@aggTrade`,
+      trade: (symbol: string) => `${symbol.toLowerCase()}@trade`,
+      ticker: (symbol: string) => `${symbol.toLowerCase()}@ticker`,
+      miniTicker: (symbol: string) => `${symbol.toLowerCase()}@miniTicker`,
       allMiniTicker: () => `!miniTicker@arr`,
       allTickers: () => '!ticker@arr'
     };
